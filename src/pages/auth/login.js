@@ -30,7 +30,7 @@ import axios from "axios";
             title: "Oops!",
             text: "Internal Server error",
             icon: "warning",
-            button: "Create Account",
+            button: false,
           });
       })
   };
