@@ -1,37 +1,27 @@
-import React from "react"
-import Login from './pages/auth/login';
-import Footer from "./pages/elements/footer";
-import Navbar from "./pages/elements/navbar";
-import './styling/App.css';
-import './dist/css/alt/adminlte.components.css';
-import './dist/css/alt/adminlte.components.css.map';
-import './dist/css/alt/adminlte.components.min.css.map';
-import './dist/css/alt/adminlte.core.min.css';
-import './dist/css/alt/adminlte.core.min.css.map';
-import './dist/css/alt/adminlte.extra-components.css';
-import './dist/css/alt/adminlte.extra-components.css.map';
-import './dist/css/alt/adminlte.extra-components.min.css';
-import './dist/css/alt/adminlte.extra-components.min.css.map';
-import './dist/css/alt/adminlte.pages.css';
-import './dist/css/alt/adminlte.pages.css.map';
-import './dist/css/alt/adminlte.pages.min.css';
-import './dist/css/alt/adminlte.pages.min.css.map';
-import './dist/css/alt/adminlte.plugins.css';
-import './dist/css/alt/adminlte.plugins.css.map';
-import './dist/css/alt/adminlte.plugins.min.css';
-import './dist/css/alt/adminlte.plugins.min.css.map';
-import './dist/css/adminlte.css.map';
-import './dist/css/adminlte.min.css';
-import './dist/css/adminlte.min.css.map';
-import Progressbar from "./pages/elements/progressbar";
-
-function App() {
-  return (
-   <>
-   <Login />
-   <Footer />
-   </>
-  );
+import React, { Component } from 'react';
+import {BrowserRouter, Switch,Route} from 'react-router-dom';
+import Home from "./components/Home";
+import Login from "./components/Login";
+import AuthenticatedComponent from './components/AuthenticatedComponent';
+import Protected from "./components/Protected";
+import Footer from './pages/elements/footer';
+import Title from './pages/elements/title';
+class App extends Component {
+  render() {
+    return (
+        <BrowserRouter>
+        <Title/>
+            <Switch>
+                <Route path="/login"  component={Login}/>
+                <Route path="/" exact component={Home}/>
+                <AuthenticatedComponent>
+                    <Route path="/secured" component={Protected}/>
+                </AuthenticatedComponent>
+            </Switch>
+            <Footer/>
+        </BrowserRouter>
+    );
+  }
 }
 
 export default App;

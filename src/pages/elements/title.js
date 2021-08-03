@@ -1,6 +1,6 @@
 import React from 'react'
 
-function title() {
+function Title() {
     return (
     <div>
     <meta charset="utf-8"></meta>
@@ -10,4 +10,4 @@ function title() {
     )
 }
 
-export default title
+export default Title;
